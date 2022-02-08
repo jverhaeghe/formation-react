@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// App.tsx
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import React from 'react';
+import LoginScreen from './src/screens/LoginScreen';
+import {TermsScreen} from './src/screens/TermsScreen';
+import {FeedScreen} from './src/screens/FeedScreen';
+import Offline from './src/screens/Offline';
+import { QueryClient, QueryClientProvider} from 'react-query'
+import { NetworkProvider } from 'react-native-offline';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import { Text } from 'react-native';
+
+ 
+ // Queries
+//  const query = useQuery('todos', getTodos)
+
+
+const queryClient = new QueryClient()
+ 
+
+const App = () => {
+  return <NetworkProvider><Offline text={"offline"}/></NetworkProvider>
+  // return <QueryClientProvider client={queryClient}><FeedScreen /></QueryClientProvider>
+};
+
+export default App;
