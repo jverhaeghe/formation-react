@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card, Paragraph, Title } from 'react-native-paper';
+import React from "react";
+import { Card, Paragraph, Title } from "react-native-paper";
 
 interface StarshipCardProps {
   name: string;
@@ -14,14 +14,14 @@ export function StarshipCard({
   manufacturer,
   cost_in_credits,
 }: StarshipCardProps) {
-  
-
-  return  (
+  return (
     <Card>
       <Card.Title title={name} />
       <Card.Content>
         <Title>{model}</Title>
-        <Paragraph>{manufacturer} : {cost_in_credits}</Paragraph>
+        <Paragraph>
+          {manufacturer} : {cost_in_credits}
+        </Paragraph>
       </Card.Content>
     </Card>
   );

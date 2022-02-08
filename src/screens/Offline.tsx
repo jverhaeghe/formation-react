@@ -3,9 +3,9 @@ import { StyleSheet, View, Text } from "react-native";
 import { ActivityIndicator, Colors } from "react-native-paper";
 import { useIsConnected } from "react-native-offline";
 
-export const Offline = (props ) => {
+export const Offline = (props) => {
   // Add `useIsConnected()` hook
-  const isConnected = useIsConnected()
+  const isConnected = useIsConnected();
   return (
     // <View>
     //   <Text>
@@ -17,7 +17,9 @@ export const Offline = (props ) => {
     // );
     //   </Text>
     // </View>
-    <View style={styles.container}><Text>{props.text}</Text></View>
+    <View style={styles.container}>
+      <Text>{props.text}</Text>
+    </View>
   );
 };
 
