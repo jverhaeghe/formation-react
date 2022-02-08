@@ -19,8 +19,8 @@ const queryClient = new QueryClient()
  
 
 const App = () => {
-  return <NetworkProvider><Offline text={"offline"}/></NetworkProvider>
-  // return <QueryClientProvider client={queryClient}><FeedScreen /></QueryClientProvider>
+  // return <NetworkProvider><Offline text={"offline"}/></NetworkProvider>
+  return <QueryClientProvider client={queryClient}><FeedScreen /></QueryClientProvider>
 };
 
 export default App;

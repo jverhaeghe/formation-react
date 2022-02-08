@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, Text, StatusBar, View , Item , FlatList} from
 import { Colors , Card, Title,Paragraph} from "react-native-paper";
 import { useStarships } from '../hook/useStarship';
 import { NetworkProvider } from 'react-native-offline';
+import { StarshipCard } from "../components/StarshipCard";
 
 export const FeedScreen = () => {
 
@@ -11,6 +12,7 @@ export const FeedScreen = () => {
 
   
    if (isLoading) {
+
      return <Text>Loading...</Text>
    }
  
@@ -20,25 +22,20 @@ export const FeedScreen = () => {
  
   
 
-  const renderItem = ({ item }) => (
-    <Card>
-      <Card.Title title={item.name} />
-      <Card.Content>
-      <Title>{item.model}</Title>
-      <Paragraph>{item.manufacturer}</Paragraph>
-    </Card.Content>
-    </Card>
-  );
-
-  
-
-
+ 
   return (
     <SafeAreaView style={styles.safeContainer}>
       
       <FlatList
         data={data.results}
-        renderItem={renderItem}
+        renderItem={({ item }) => (
+          <StarshipCard
+            cost_in_credits={item.cost_in_credits}
+            manufacturer={item.manufacturer}
+            model={item.model}
+            name={item.name}
+          />
+        )}
         keyExtractor={item => item.name}
       />
 
